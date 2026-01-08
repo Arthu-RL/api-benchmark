@@ -8,6 +8,8 @@ A ideia é fazer vários posts enviando um body qualquer e avaliar várias métr
 
 ## Use
 
+Desafio: Precisa de um POST implementado na API path/apibenchmark, que retorne um body qualquer recebido
+
 ```bash
-target/debug/apibenchmark --url "http://localhost:{port}" --pool-max-idle-per-host 100 --concurrency 100 --requests-per-worker 1000 --file-path-for-body-data "image.png"
+target/debug/apibenchmark --url "http://localhost:{port}/apibenchmark" --pool-max-idle-per-host 100 --concurrency 100 --requests-per-worker 1000 --file-path-for-body-data "image.png"
 ```
