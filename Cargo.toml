@@ -1,0 +1,11 @@
+[package]
+name = "apibenchmark"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.49.0", features = ["full"] }
+reqwest = "0.13.1"
+base64 = "0.22.1"
+bytes = "1.11.0"
+clap = { version = "4.5.54", features = ["derive"] }
