@@ -101,7 +101,7 @@ async fn main() {
     let success_count = success.load(Ordering::Relaxed);
     let error_count = errors.load(Ordering::Relaxed);
     let total = success_count + error_count;
-    let avg_latency_ns = total_latency_ns.load(Ordering::Relaxed) / success_count as u64;
+    let avg_latency_ns = total_latency_ns.load(Ordering::Relaxed) / success_count.max(1) as u64;
 
     println!();
     println!("==================== Benchmark Results ====================");
