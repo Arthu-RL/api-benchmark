@@ -27,11 +27,15 @@ async fn main() {
     let client: Client = match Client::builder().pool_max_idle_per_host(args.pool_max_idle_per_host).build() {
         Ok(client) => client,
         Err(err) => {
-            eprintln!("Failed to build client: {}", err);
-            return;
+            panic!("Failed to build client: {}", err);
         } 
     };
-    let data: Vec<u8> = std::fs::read(args.file_path_for_body_data).unwrap();
+    let data: Vec<u8> = match std::fs::read(args.file_path_for_body_data) {
+        Ok(data) => data,
+        Err(err) => {
+            panic!("Failed to read file: {}", err);
+        } 
+    };
     let body: Bytes =  Bytes::from(data);
 
     let url: String = args.url.trim().to_lowercase();
